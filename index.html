@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/game.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.scss" />
+    <title>RPS Game</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header>
+        <nav class="game-nav">
+          <div class="front-nav">
+            <p class="title">RPS Game</p>
+          </div>
+
+          <div class="back-nav">
+            <div class="settings-icon">
+              <img
+                id="settings_img"
+                src="/settings.svg"
+                alt="settings"
+                title="settings"
+              />
+            </div>
+          </div>
+        </nav>
+
+        <section class="settings-container">
+          <nav class="settings-nav">
+            <div class="front-nav">
+              <p class="title">Settings</p>
+            </div>
+
+            <div class="back-nav">
+              <div id="close_btn" class="close-btn" title="close"></div>
+            </div>
+          </nav>
+
+          <section class="settings">
+            <div class="settings-item game-theme">
+              <p class="settings-item-title">Game theme:</p>
+
+              <div class="content">
+                <select id="game_theme_select" name="game-theme-select">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-item game-look">
+              <p class="settings-item-title">Game look:</p>
+
+              <div class="content">
+                <select id="game_look_select" name="game-look-select">
+                  <option value="images">Images</option>
+                  <option value="texts">Texts</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-item max-score">
+              <p class="settings-item-title">Max score:</p>
+
+              <div class="content">
+                <input id="max_score_input" type="number" name="max-score" />
+              </div>
+            </div>
+
+            <div class="settings-item computer-level">
+              <p class="settings-item-title">Computer level:</p>
+
+              <div class="content">
+                <select id="computer_level_select" name="computer-level-select">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-item decrease-score">
+              <p class="settings-item-title">
+                Decrease player score when enemy get it:
+              </p>
+
+              <div class="content">
+                <select id="decrease_score_select" name="decrease-score-select">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="settings-item reset-game">
+              <p class="settings-item-title">Reset game:</p>
+
+              <div class="content">
+                <button id="reset_game_btn">Reset</button>
+              </div>
+            </div>
+
+            <div class="settings-item contact-me">
+              <p class="settings-item-title">Contact me:</p>
+
+              <div class="content">
+                <span id="contact_me_email" class="contact-me-email"></span>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="players">
+          <section class="you">
+            <div id="your_choice" class="choice-container your-choice">
+              <p>You:</p>
+
+              <div id="your_choice_img_container" class="choice-img">
+                <img
+                  id="your_choice_img"
+                  src="/question-mark.svg"
+                  alt="question-mark"
+                />
+              </div>
+
+              <p id="your_choice_text" class="hide">Play to show!</p>
+            </div>
+
+            <div class="score">
+              <p>Score: <span id="your_score"></span></p>
+
+              <p>Winning times: <span id="your_winning_times"></span></p>
+            </div>
+          </section>
+
+          <section class="computer">
+            <div id="computer_choice" class="choice-container computer-choice">
+              <p>Computer:</p>
+
+              <div id="computer_choice_img_container" class="choice-img">
+                <img
+                  id="computer_choice_img"
+                  src="/question-mark.svg"
+                  alt="question-mark"
+                />
+              </div>
+
+              <p id="computer_choice_text" class="hide">Play to show!</p>
+            </div>
+
+            <div class="score">
+              <p>Score: <span id="computer_score"></span></p>
+
+              <p>Winning times: <span id="computer_winning_times"></span></p>
+            </div>
+          </section>
+        </section>
+
+        <section class="result-actions">
+          <div class="result">
+            <p>Result: <span id="game_result">Play to show!</span></p>
+          </div>
+
+          <div class="game-actions">
+            <button class="choice-btn" data-choice="rock">Rock</button>
+            <button class="choice-btn" data-choice="paper">Paper</button>
+            <button class="choice-btn" data-choice="scissors">Scissors</button>
+          </div>
+        </section>
+      </header>
+
+      <footer>
+        <p class="text">
+          Developed with love by
+          <span id="developer" class="developer"></span> Copyright ©
+          <span id="current_year"></span> all rights reserved.
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

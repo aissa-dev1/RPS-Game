@@ -1,0 +1,261 @@
+@import "./styles/base.scss";
+@import "./styles/media.scss";
+
+$radius: 0.25rem;
+$duration: 0.3s;
+
+.light {
+  --bg-color: #fff;
+  --color: #212024;
+  --settings-container-bg: #212024;
+  --settings-container-color: #fff;
+  --choice-btn-bg: #212024;
+  --choice-btn-color: #fff;
+  --s-img-w: 2.25rem;
+  --c-img-w: 3rem;
+}
+
+.dark {
+  --bg-color: #212024;
+  --color: #fff;
+  --settings-container-bg: #fff;
+  --settings-container-color: #212024;
+  --choice-btn-bg: #fff;
+  --choice-btn-color: #212024;
+  --s-img-w: 2rem;
+  --c-img-w: 2.5rem;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+.container {
+  margin: 0 auto;
+
+  header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .game-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.25rem;
+
+      .front-nav {
+        .title {
+          font-size: large;
+          font-weight: 500;
+        }
+      }
+
+      .back-nav {
+        .settings-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.05rem;
+          background-color: #fff;
+          border-radius: $radius;
+
+          img {
+            width: var(--s-img-w);
+            cursor: pointer;
+            transition-duration: $duration;
+
+            &.active {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+    }
+
+    .settings-container {
+      position: absolute;
+      width: 100%;
+      background-color: var(--settings-container-bg);
+      color: var(--settings-container-color);
+      border-radius: $radius;
+      padding: 0.3rem;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      .settings-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.25rem;
+
+        .back-nav {
+          .close-btn {
+            width: 1rem;
+            height: 1rem;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .settings {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        .settings-item {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .settings-item-title {
+            font-size: medium;
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+
+          .content {
+            select,
+            input {
+              border: 1px solid #212024;
+              outline: none;
+              padding: 0.3rem 0.5rem;
+              border-radius: $radius;
+            }
+
+            button {
+              border: none;
+              outline: none;
+              padding: 0.3rem 0.7rem;
+              border-radius: $radius;
+              background-color: var(--choice-btn-color);
+              color: var(--choice-btn-bg);
+              cursor: pointer;
+              transition-duration: $duration;
+
+              &.disactive {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
+        .contact-me {
+          .contact-me-email {
+            font-size: small;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .players {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .you,
+      .computer {
+        .choice-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.25rem;
+
+          .choice-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            padding: 0.05rem;
+            border-radius: $radius;
+
+            &.hide {
+              display: none;
+            }
+
+            img {
+              width: var(--c-img-w);
+            }
+          }
+
+          p {
+            &.hide {
+              display: none;
+            }
+          }
+        }
+
+        .score {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      .game-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+
+        .choice-btn {
+          border: none;
+          outline: none;
+          padding: 0.3rem 0.7rem;
+          border-radius: $radius;
+          background-color: var(--choice-btn-bg);
+          color: var(--choice-btn-color);
+          cursor: pointer;
+          transition-duration: $duration;
+
+          &.disactive {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color);
+    color: var(--bg-color);
+    padding: 0.3rem 0;
+
+    .text {
+      font-size: small;
+      font-weight: 400;
+
+      .developer {
+        font-weight: 700;
+      }
+    }
+  }
+}
